@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="\32c238e7" t="IncludeRecursive" />
-    <e p="\app" t="IncludeRecursive" />
-    <e p="C:\Users\joeychen\.nuget\packages\xunit.runner.visualstudio\2.3.1\build\netcoreapp1.0\xunit.runner.reporters.netcoreapp10.dll" t="Include" />
-    <e p="C:\Users\joeychen\.nuget\packages\xunit.runner.visualstudio\2.3.1\build\netcoreapp1.0\xunit.runner.utility.netcoreapp10.dll" t="Include" />
-    <e p="C:\Users\joeychen\.nuget\packages\xunit.runner.visualstudio\2.3.1\build\netcoreapp1.0\xunit.runner.visualstudio.dotnetcore.testadapter.dll" t="Include" />
-    <e p="C:\Users\joeychen\.Rider2018.2\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\joeychen\.Rider2018.2\system\resharper-host\local\Transient\ReSharperHost\v182\SolutionCaches\_Otp.1041224746.00" t="ExcludeRecursive" />
-    <e p="C:\Users\joeychen\RiderProjects\Otp" t="IncludeFlat">
+    <e p="C:\Users\joey_\.nuget\packages\nunit3testadapter\3.16.1\build\netcoreapp2.1\nunit.engine.api.dll" t="Include" />
+    <e p="C:\Users\joey_\.nuget\packages\nunit3testadapter\3.16.1\build\netcoreapp2.1\nunit.engine.dll" t="Include" />
+    <e p="C:\Users\joey_\.nuget\packages\nunit3testadapter\3.16.1\build\netcoreapp2.1\NUnit3.TestAdapter.dll" t="Include" />
+    <e p="C:\Users\joey_\.nuget\packages\nunit3testadapter\3.16.1\build\netcoreapp2.1\NUnit3.TestAdapter.pdb" t="Include" />
+    <e p="C:\Users\joey_\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\joey_\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_Otp.1340220191.00" t="ExcludeRecursive" />
+    <e p="C:\Users\joey_\RiderProjects\202004UnitTest\Otp" t="IncludeFlat">
       <e p="Otp.sln" t="IncludeFlat" />
       <e p="OtpLib" t="IncludeRecursive">
         <e p="AuthenticationService.cs" t="Include" />

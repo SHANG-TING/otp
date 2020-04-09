@@ -1,12 +1,13 @@
 using System;
+using NUnit.Framework;
 using OtpLib;
-using Xunit;
 
 namespace OtpTests
 {
+    [TestFixture]
     public class AuthenticationServiceTests
     {
-        [Fact]
+        [Test]
         public void IsValidTest()
         {
             var target = new AuthenticationService();
