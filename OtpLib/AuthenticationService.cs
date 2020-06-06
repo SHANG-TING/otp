@@ -7,6 +7,7 @@ namespace OtpLib
     {
         private readonly IProfile _profile;
         private readonly IToken _token;
+        private readonly ILogger _logger;
 
         public AuthenticationService()
         {
@@ -14,10 +15,11 @@ namespace OtpLib
             _token = new RsaTokenDao();
         }
 
-        public AuthenticationService(IProfile profile, IToken token)
+        public AuthenticationService(IProfile profile, IToken token, ILogger logger)
         {
             _profile = profile;
             _token = token;
+            _logger = logger;
         }
 
         public bool IsValid(string account, string passcode)
@@ -38,9 +40,20 @@ namespace OtpLib
             }
             else
             {
+                _logger.Save($"account: {account} try to login faild");
                 return false;
             }
         }
+    }
+
+    public interface ILogger
+    {
+        void Save(string message);
+    }
+
+    public class Logger : ILogger
+    {
+        public void Save(string message) {}
     }
 
     public interface IProfile
