@@ -1,5 +1,6 @@
 using System;
 using NUnit.Framework;
+using NSubstitute;
 using OtpLib;
 
 namespace OtpTests
@@ -7,29 +8,55 @@ namespace OtpTests
     [TestFixture]
     public class AuthenticationServiceTests
     {
+        private IProfile _profile;
+        private IToken _token;
+        private AuthenticationService _target;
+
+        [SetUp]
+        public void SetUp()
+        {
+            _profile = Substitute.For<IProfile>();
+            _token = Substitute.For<IToken>();
+            _target = new AuthenticationService(_profile, _token);
+        }
+
         [Test]
         public void IsValidTest()
         {
-            var target = new AuthenticationService(new StubProfile(), new StubToken());
-
-            var actual = target.IsValid("joey", "91000000");
-            Assert.True(actual);
+            GivenPorfile("joey", "91");
+            GivenToken("000000");
+            ShouldBeValid("joey", "91000000");
         }
-    }
 
-    public class StubProfile : IProfile
-    {
-        public string GetPassword(string account)
+        [Test]
+        public void IsInValidTest()
         {
-            return account == "joey" ? "91" : string.Empty;
+            GivenPorfile("joey", "91");
+            GivenToken("000000");
+            ShouldBeInValid("joey", "Wrong Password!");
         }
-    }
 
-    public class StubToken : IToken
-    {
-        public string GetRandom(string account)
+        private void ShouldBeInValid(string account, string password)
         {
-            return "000000";
+            var actual = _target.IsValid(account, password);
+            Assert.IsFalse(actual);
+        }
+
+
+        private void ShouldBeValid(string account, string password)
+        {
+            var actual = _target.IsValid(account, password);
+            Assert.IsTrue(actual);
+        }
+
+        private void GivenToken(string token)
+        {
+            _token.GetRandom("").ReturnsForAnyArgs(token);
+        }
+
+        private void GivenPorfile(string account, string password)
+        {
+            _profile.GetPassword(account).Returns(password);
         }
     }
 }
